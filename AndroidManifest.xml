@@ -25,6 +25,7 @@
         </activity>
         
         <activity android:name=".ArticleActivity"/>
-    </application>
+        <activity android:name=".AboutActivity"/>
+        </application>
 
 </manifest>
