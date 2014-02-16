@@ -10,7 +10,7 @@
 ##指导
 讲解接吻的练习、如何接吻、接吻的技巧、法式湿吻等。
 ![](./snapshots/guide.png)
-![](./snapshots/guide_article_.png)
+![](./snapshots/guide_article.png)
 
 ##文化
 讲解比较全面的介绍了接吻的各个方面的知识。
