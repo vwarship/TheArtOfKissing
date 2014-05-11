@@ -1,15 +1,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
-
-    <item
-        android:id="@+id/action_bgmusic"
-        android:icon="@drawable/ic_menu_music_play"
-        android:title="@string/action_bgmusic"
-        android:showAsAction="ifRoom"/>
     
-    <item
-        android:id="@+id/action_about"
-        android:icon="@drawable/ic_menu_about"
-        android:title="@string/action_about"
-        android:showAsAction="ifRoom"/>
+    <item android:id="@+id/menu_more"
+        android:icon="@drawable/ic_action_overflow"
+        android:showAsAction="always"
+        android:title="@string/action_overflow">
+    	<menu>
+    	    
+		    <item
+		        android:id="@+id/action_bgmusic"
+		        android:icon="@drawable/ic_action_play"
+		        android:title="@string/action_bgmusic"
+		        android:showAsAction="never"/>
+    	    
+		    <item
+		        android:id="@+id/action_about"
+		        android:icon="@drawable/ic_action_about"
+		        android:title="@string/action_about"
+		        android:showAsAction="never"/>
+		</menu>
+	</item>
     
 </menu>

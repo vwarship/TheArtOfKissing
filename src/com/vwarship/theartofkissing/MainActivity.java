@@ -41,24 +41,26 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		
 		public void onOff()
 		{
+			MenuItem backgroundMusicMenuItem = optionsMenu.findItem(R.id.action_bgmusic);
+
 			if (mPlayer == null)
 				create();
 			
 			if (mPlayer.isPlaying())
 			{
 				mPlayer.pause();
-				mBackgroundMusicMenuItem.setIcon(R.drawable.ic_menu_music_play);
+				backgroundMusicMenuItem.setIcon(R.drawable.ic_action_play);
 				
 			}
 			else
 			{
 				mPlayer.start();
-				mBackgroundMusicMenuItem.setIcon(R.drawable.ic_menu_music_pause);
+				backgroundMusicMenuItem.setIcon(R.drawable.ic_action_pause);
 			}
 		}
 	}
 	
-	private MenuItem mBackgroundMusicMenuItem;
+	private Menu optionsMenu;
 	private BackgroundSound mBackgroundSound = new BackgroundSound();
 	
 	/**
@@ -118,12 +120,11 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
+		optionsMenu = menu;
+		
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
-		
-		mBackgroundMusicMenuItem = menu.findItem(R.id.action_bgmusic);
-		
-		return true;
+		return super.onCreateOptionsMenu(menu);
 	}
 
 	@Override

@@ -3,7 +3,8 @@
 
     <string name="app_name">The Art of Kissing</string>
     
-    <string name="action_bgmusic">我心依旧</string>
+    <string name="action_overflow">More</string>
+    <string name="action_bgmusic">My Heart Will Go On</string>
     <string name="action_about">About</string>
     
     <string name="title_section1">Good</string>
