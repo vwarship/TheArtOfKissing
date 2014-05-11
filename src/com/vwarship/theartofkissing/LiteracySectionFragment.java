@@ -24,7 +24,11 @@ public class LiteracySectionFragment extends Fragment {
 			Article article = articles.get(i);
 			
 			StringBuilder sb = new StringBuilder();
-			sb.append("<h1>").append(i+1).append(" ").append(article.getTitle()==null ? "" : article.getTitle()).append("</h1>").append(article.getText());
+			if (article.getTitle() != null)
+			{
+				sb.append("<h1>").append(article.getTitle()).append("</h1>");
+			}
+			sb.append(article.getText());
 			
 			TextView tv = new TextView(rootView.getContext());
 			tv.setText(Html.fromHtml(sb.toString()));
