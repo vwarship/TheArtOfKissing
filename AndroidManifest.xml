@@ -24,8 +24,12 @@
             </intent-filter>
         </activity>
         
-        <activity android:name=".ArticleActivity"/>
-        <activity android:name=".AboutActivity"/>
-        </application>
+        <activity android:name=".ArticleActivity">
+        </activity>
+        
+        <activity android:name=".AboutActivity">
+        </activity>
+        
+	</application>
 
 </manifest>

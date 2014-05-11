@@ -10,6 +10,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.DisplayMetrics;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 public class ArticleActivity extends Activity {
@@ -23,8 +24,8 @@ public class ArticleActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_article);
 		
-		getActionBar().hide();
-	
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		
 		mTitle = (TextView)this.findViewById(R.id.article_title);
 		mText = (TextView)this.findViewById(R.id.article_text);
 		
@@ -63,6 +64,19 @@ public class ArticleActivity extends Activity {
 		mText.setText(charSequence);
 	}
 	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+		switch(item.getItemId())
+		{
+		case android.R.id.home:
+			onBackPressed();
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
+
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();

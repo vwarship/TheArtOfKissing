@@ -1,10 +1,10 @@
 package com.vwarship.theartofkissing;
 
 import android.app.Activity;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 public class AboutActivity extends Activity {
@@ -13,13 +13,25 @@ public class AboutActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_about);
 		
-		getActionBar().hide();
-		
-		TextView aboutTitle = (TextView)this.findViewById(R.id.about_title);
-		aboutTitle.setBackgroundColor(Color.LTGRAY);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setTitle(R.string.action_about);
 		
 		TextView website = (TextView)this.findViewById(R.id.website);
 		website.setAutoLinkMask(Linkify.ALL); 
 		website.setMovementMethod(LinkMovementMethod.getInstance());
 	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+		switch(item.getItemId())
+		{
+		case android.R.id.home:
+			onBackPressed();
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
+	
 }
