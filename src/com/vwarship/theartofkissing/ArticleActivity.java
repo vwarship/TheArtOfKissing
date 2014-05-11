@@ -14,7 +14,6 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 public class ArticleActivity extends Activity {
-	private TextView mTitle;
 	private TextView mText;
 	
 	private List<Bitmap> bitmapList = new ArrayList<Bitmap>();
@@ -25,11 +24,9 @@ public class ArticleActivity extends Activity {
 		setContentView(R.layout.activity_article);
 		
 		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setTitle(getIntent().getExtras().getCharSequence(TrainingSectionFragment.TITLE));
 		
-		mTitle = (TextView)this.findViewById(R.id.article_title);
 		mText = (TextView)this.findViewById(R.id.article_text);
-		
-		mTitle.setText(getIntent().getExtras().getCharSequence(TrainingSectionFragment.TITLE));
 		
 		String html = getIntent().getExtras().getCharSequence(TrainingSectionFragment.TEXT).toString();
 		

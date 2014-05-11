@@ -14,7 +14,7 @@ import android.widget.TextView;
 public class LiteracySectionFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.activity_benefit, container, false);
+		View rootView = inflater.inflate(R.layout.activity_good, container, false);
 		LinearLayout contentView = (LinearLayout)rootView.findViewById(R.id.content_view);
 		
 		List<Article> articles = ArticleListBuilder.create(getResources().openRawResource(R.raw.literacy_articles));

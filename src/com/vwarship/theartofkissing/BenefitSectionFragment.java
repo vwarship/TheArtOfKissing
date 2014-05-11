@@ -22,7 +22,7 @@ public class BenefitSectionFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.activity_benefit, container, false);
+		View rootView = inflater.inflate(R.layout.activity_good, container, false);
 		
 		mBenefits = ArticleListBuilder.create(getResources().openRawResource(R.raw.benefit_articles));
 
