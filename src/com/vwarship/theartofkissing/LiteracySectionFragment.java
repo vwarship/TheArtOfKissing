@@ -35,6 +35,7 @@ public class LiteracySectionFragment extends Fragment {
 			TextView tv = new TextView(rootView.getContext());
 			tv.setText(Html.fromHtml(sb.toString()));
 			tv.setBackgroundResource(R.drawable.literacy_article_background);
+			tv.setTextSize(16);
 			
 			LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
 					LinearLayout.LayoutParams.MATCH_PARENT,

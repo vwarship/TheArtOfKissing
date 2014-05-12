@@ -6,12 +6,18 @@
         android:title="@string/action_overflow">
     	<menu>
     	    
+		    <!-- <item
+		        android:id="@+id/action_appwall"
+		        android:icon="@drawable/ic_icon"
+		        android:title="@string/action_appwall"
+		        android:showAsAction="ifRoom"/> -->
+    	    
 		    <item
 		        android:id="@+id/action_bgmusic"
 		        android:icon="@drawable/ic_action_play"
 		        android:title="@string/action_bgmusic"
 		        android:showAsAction="never"/>
-    	    
+		    	    
 		    <item
 		        android:id="@+id/action_about"
 		        android:icon="@drawable/ic_action_about"
