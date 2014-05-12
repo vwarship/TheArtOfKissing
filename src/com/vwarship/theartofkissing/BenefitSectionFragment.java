@@ -65,7 +65,7 @@ public class BenefitSectionFragment extends Fragment {
 			
 			isFirst = false;
 		}
-		
+
 		return rootView;
 	}
 	

@@ -6,11 +6,11 @@
         android:title="@string/action_overflow">
     	<menu>
     	    
-		    <!-- <item
+		     <item
 		        android:id="@+id/action_appwall"
-		        android:icon="@drawable/ic_icon"
+		        android:icon="@drawable/ic_action_appwall"
 		        android:title="@string/action_appwall"
-		        android:showAsAction="ifRoom"/> -->
+		        android:showAsAction="never"/>
     	    
 		    <item
 		        android:id="@+id/action_bgmusic"
