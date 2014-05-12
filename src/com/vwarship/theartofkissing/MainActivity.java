@@ -2,6 +2,9 @@ package com.vwarship.theartofkissing;
 
 import java.util.Locale;
 
+import com.tencent.stat.StatService;
+import com.vwarship.theartofkissing.R;
+
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -116,6 +119,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
 		}
+		
+		StatService.trackCustomEvent(this, "onCreate", "true");
 	}
 
 	@Override

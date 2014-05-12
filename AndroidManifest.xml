@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.vwarship.theartofkissing"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionCode="2"
+    android:versionName="2.0" >
 
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="19" />
 
+	<!-- mta系统的权限< -->
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -24,12 +30,17 @@
             </intent-filter>
         </activity>
         
-        <activity android:name=".ArticleActivity">
+        <activity android:name="com.vwarship.theartofkissing.ArticleActivity">
         </activity>
         
-        <activity android:name=".AboutActivity">
+        <activity android:name="com.vwarship.theartofkissing.AboutActivity">
         </activity>
+
+		<!-- 请将MTA_APPKEY改为MTA分配的appkey < -->
+		<meta-data android:name="TA_APPKEY" android:value="A6LA8E8MC1LR" />
+		<!-- 请将CHANNAL改为app的发布渠道 < -->
+		<meta-data  android:name="InstallChannel" android:value="CHANNAL" />
         
 	</application>
-
+    
 </manifest>

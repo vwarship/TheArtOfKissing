@@ -3,6 +3,8 @@ package com.vwarship.theartofkissing;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.vwarship.theartofkissing.R;
+
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;

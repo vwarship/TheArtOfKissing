@@ -2,6 +2,8 @@ package com.vwarship.theartofkissing;
 
 import java.util.List;
 
+import com.vwarship.theartofkissing.R;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Html;

@@ -2,6 +2,8 @@ package com.vwarship.theartofkissing;
 
 import java.lang.reflect.Field;
 
+import com.vwarship.theartofkissing.R;
+
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

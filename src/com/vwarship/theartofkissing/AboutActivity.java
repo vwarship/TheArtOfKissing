@@ -1,5 +1,7 @@
 package com.vwarship.theartofkissing;
 
+import com.vwarship.theartofkissing.R;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
