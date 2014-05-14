@@ -2,8 +2,6 @@ package com.vwarship.theartofkissing;
 
 import java.util.Locale;
 
-import com.qq.e.appwall.GdtAppwall;
-import com.tencent.stat.StatService;
 import com.vwarship.theartofkissing.R;
 
 import android.app.ActionBar;
@@ -120,23 +118,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
 		}
-		
-		StatService.trackCustomEvent(this, "onCreate", "true");
-		
-		//初始化gdt应用墙,
-		/*
-		 * 此处有两个初始化接口可以选一个调用
-		 * 接口参数: 
-		 * GdtAppwall.init(Context context, String appid,String pid,boolean testad)
-		 * GdtAppwall.init(Context context,String appid,String pid)
-		 * 其中的差别的第四个参数testad，默认为false。
-		 * 如果设置为true，则进入测试广告模式。该广告模式下不扣费。
-		 * 建议在调式时设置为true,发布前去掉。
-		 * “appid”指在 http://e.qq.com/dev/ 能看到的app唯一字符串
-		 * “广告位 id” 指在 http://e.qq.com/dev/ 生成的数字串，
-		 * 并非 appid 或者 appkey
-		 */
-		GdtAppwall.init(this, "1101366311", "9079537215733406649");
 	}
 
 	@Override
@@ -153,7 +134,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	    // Handle presses on the action bar items
 	    switch (item.getItemId()) {
 	    	case R.id.action_appwall:
-	    		GdtAppwall.showAppwall();
 	    		return true;
 	        case R.id.action_bgmusic:
 	        	mBackgroundSound.onOff();

@@ -24,3 +24,7 @@ proguard/
 
 # Eclipse configuration file
 .metadata/
+
+# ANT
+build.xml
+ant.properties
