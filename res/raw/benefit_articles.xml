@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <articles>
 	<article>
-        <title></title>
+        <title>Cosmetology</title>
         <text><![CDATA[
 <h1>Cosmetology</h1>
 <img src='benefit_mr'/><br>
@@ -10,7 +10,7 @@
     </article>
 
 	<article>
-        <title></title>
+        <title>Protect Teeth</title>
         <text><![CDATA[
 <h1>Protect Teeth</h1>
 <img src='benefit_hc'/><br>
@@ -19,7 +19,7 @@
     </article>
 
 	<article>
-        <title></title>
+        <title>Immunity</title>
         <text><![CDATA[
 <h1>Immunity</h1>
 <img src='benefit_my'/><br>
@@ -28,7 +28,7 @@
     </article>
 	
 	<article>
-        <title></title>
+        <title>Lose Weight</title>
         <text><![CDATA[
 <h1>Lose Weight</h1>
 <img src='benefit_jf'/><br>
@@ -37,7 +37,7 @@
     </article>
 	
 	<article>
-        <title></title>
+        <title>Relieve Pain</title>
         <text><![CDATA[
 <h1>Relieve Pain</h1>
 <img src='benefit_zt'/><br>
@@ -46,7 +46,7 @@
     </article>
 	
 	<article>
-        <title></title>
+        <title>Decompression</title>
         <text><![CDATA[
 <h1>Decompression</h1>
 <img src='benefit_jy'/><br>
@@ -55,7 +55,7 @@
     </article>
 	
 	<article>
-        <title></title>
+        <title>Health</title>
         <text><![CDATA[
 <h1>Health</h1>
 <img src='benefit_jk'/><br>

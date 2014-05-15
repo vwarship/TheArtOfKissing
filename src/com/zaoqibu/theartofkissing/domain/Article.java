@@ -1,8 +1,9 @@
-package com.vwarship.theartofkissing;
+package com.zaoqibu.theartofkissing.domain;
 
 public class Article {
 	private String title;
 	private String text;
+	private String icon;
 	
 	public String getTitle() {
 		return title;
@@ -15,6 +16,12 @@ public class Article {
 	}
 	public void setText(String text) {
 		this.text = text;
+	}
+	public String getIcon() {
+		return icon;
+	}
+	public void setIcon(String icon) {
+		this.icon = icon;
 	}
 	
 }

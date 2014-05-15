@@ -1,8 +1,8 @@
-package com.vwarship.theartofkissing;
+package com.zaoqibu.theartofkissing.util;
 
 import java.lang.reflect.Field;
 
-import com.vwarship.theartofkissing.R;
+import com.zaoqibu.theartofkissing.R;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -38,7 +38,12 @@ public class ResourceBitmapHelper
 	
 	public BitmapDrawable getDrawableFromResourceName(String resourceName, int containerWidth)
 	{
-		return getDrawableFromResourceId(getResourcesDrawableId(resourceName), containerWidth);
+		return getDrawableFromResourceId(getResourcesDrawableId(resourceName), containerWidth, true);
+	}
+	
+	public BitmapDrawable getDrawableFromResourceNameWithNoCompress(String resourceName, int containerWidth)
+	{
+		return getDrawableFromResourceId(getResourcesDrawableId(resourceName), containerWidth, false);
 	}
 	
 	private int getResourcesDrawableId(String name)
@@ -53,15 +58,18 @@ public class ResourceBitmapHelper
 		return 0;
 	}
 	
-	public BitmapDrawable getDrawableFromResourceId(int resourceId, int containerWidth)
+	public BitmapDrawable getDrawableFromResourceId(int resourceId, int containerWidth, boolean isCompress)
 	{
 		BitmapFactory.Options options = new BitmapFactory.Options();
 
 		Size imageSize = calculateImageSize(resourceId, options);
 		Size zoomSize = calculateImageZoomSize(resourceId, containerWidth, imageSize);
 		
+		float compressNum = 1.2f;
+		if (isCompress)
+			compressNum = 2;
 		//为了减少占用内存，再缩小一半尺寸。
-		Size zoomOutHalfSize = new Size(zoomSize.width/2, zoomSize.height/2);
+		Size zoomOutHalfSize = new Size((int)(zoomSize.width/compressNum), (int)(zoomSize.height/compressNum));
 		Bitmap bitmap = decodeSampledBitmapFromResource(resourceId, imageSize, zoomOutHalfSize, options);
 		
 		BitmapDrawable drawable = new BitmapDrawable(mResources, bitmap);

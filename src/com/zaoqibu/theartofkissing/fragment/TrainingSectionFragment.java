@@ -1,11 +1,15 @@
-package com.vwarship.theartofkissing;
+package com.zaoqibu.theartofkissing.fragment;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.vwarship.theartofkissing.R;
+import com.umeng.analytics.MobclickAgent;
+import com.zaoqibu.theartofkissing.R;
+import com.zaoqibu.theartofkissing.ArticleActivity;
+import com.zaoqibu.theartofkissing.domain.Article;
+import com.zaoqibu.theartofkissing.util.ArticleListBuilder;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -58,6 +62,16 @@ public class TrainingSectionFragment extends ListFragment {
 		intent.putExtra(TITLE, article.getTitle());
 		intent.putExtra(TEXT, article.getText());
 		startActivity(intent);
+	}
+	
+	private static final String PAGE_NAME = "How To";
+	public void onResume() {
+	    super.onResume();
+	    MobclickAgent.onPageStart(PAGE_NAME);
+	}
+	public void onPause() {
+	    super.onPause();
+	    MobclickAgent.onPageEnd(PAGE_NAME); 
 	}
 
 }

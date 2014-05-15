@@ -1,11 +1,18 @@
-package com.vwarship.theartofkissing;
+package com.zaoqibu.theartofkissing;
 
 import java.util.Locale;
 
-import com.vwarship.theartofkissing.R;
+import com.qq.e.appwall.GdtAppwall;
+import com.umeng.analytics.MobclickAgent;
+import com.umeng.update.UmengUpdateAgent;
+import com.zaoqibu.theartofkissing.R;
+import com.zaoqibu.theartofkissing.fragment.BenefitSectionFragment;
+import com.zaoqibu.theartofkissing.fragment.LiteracySectionFragment;
+import com.zaoqibu.theartofkissing.fragment.TrainingSectionFragment;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -14,10 +21,15 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
+	private Context context;
+	private Menu optionsMenu;
+	private BackgroundSound mBackgroundSound = new BackgroundSound();
+	
 	public class BackgroundSound 
 	{
 		private MediaPlayer mPlayer = null;
@@ -36,6 +48,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		{
 			if (mPlayer != null)
 			{
+				mPlayer.stop();
 				mPlayer.release();
 				mPlayer = null;
 			}
@@ -53,17 +66,17 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 				mPlayer.pause();
 				backgroundMusicMenuItem.setIcon(R.drawable.ic_action_play);
 				
+				MobclickAgent.onEvent(context, "pause");
 			}
 			else
 			{
 				mPlayer.start();
 				backgroundMusicMenuItem.setIcon(R.drawable.ic_action_pause);
+				
+				MobclickAgent.onEvent(context, "play");
 			}
 		}
 	}
-	
-	private Menu optionsMenu;
-	private BackgroundSound mBackgroundSound = new BackgroundSound();
 	
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -84,7 +97,13 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
+		
+		context = this;
+		
+		MobclickAgent.openActivityDurationTrack(false);
+		MobclickAgent.updateOnlineConfig(this);
+		UmengUpdateAgent.update(this);
+		
 		// Set up the action bar.
 		final ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -134,6 +153,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	    // Handle presses on the action bar items
 	    switch (item.getItemId()) {
 	    	case R.id.action_appwall:
+	    		GdtAppwall wall = new GdtAppwall(MainActivity.this, "1101366311", "9079537215733406649", false);
+				wall.doShowAppWall();
+				Log.i("debug", "wall........");
 	    		return true;
 	        case R.id.action_bgmusic:
 	        	mBackgroundSound.onOff();
@@ -217,6 +239,15 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	protected void onDestroy() {
 		super.onDestroy();
 		mBackgroundSound.release();
+	}
+	
+	public void onResume() {
+		super.onResume();
+		MobclickAgent.onResume(this);
+	}
+	public void onPause() {
+		super.onPause();
+		MobclickAgent.onPause(this);
 	}
 	
 }

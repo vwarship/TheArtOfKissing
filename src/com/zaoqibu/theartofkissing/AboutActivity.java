@@ -1,6 +1,7 @@
-package com.vwarship.theartofkissing;
+package com.zaoqibu.theartofkissing;
 
-import com.vwarship.theartofkissing.R;
+import com.umeng.analytics.MobclickAgent;
+import com.zaoqibu.theartofkissing.R;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -27,6 +28,18 @@ public class AboutActivity extends Activity {
 		default:
 			return super.onOptionsItemSelected(item);
 		}
+	}
+	
+	private static final String PAGE_NAME = "About";
+	public void onResume() {
+		super.onResume();
+	    MobclickAgent.onPageStart(PAGE_NAME);
+		MobclickAgent.onResume(this);
+	}
+	public void onPause() {
+		super.onPause();
+	    MobclickAgent.onPageEnd(PAGE_NAME); 
+		MobclickAgent.onPause(this);
 	}
 	
 }

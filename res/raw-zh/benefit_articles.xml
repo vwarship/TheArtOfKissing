@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <articles>
 	<article>
-        <title></title>
+	    <icon>benefit_mr</icon>
+        <title>美容</title>
         <text><![CDATA[
 <h1>美容</h1>
 <img src='benefit_mr'/><br>
@@ -10,7 +11,8 @@
     </article>
 
 	<article>
-        <title></title>
+	    <icon>benefit_hc</icon>
+        <title>护齿</title>
         <text><![CDATA[
 <h1>护齿</h1>
 <img src='benefit_hc'/><br>
@@ -19,7 +21,8 @@
     </article>
 
 	<article>
-        <title></title>
+	    <icon>benefit_my</icon>
+        <title>免疫</title>
         <text><![CDATA[
 <h1>免疫</h1>
 <img src='benefit_my'/><br>
@@ -28,7 +31,8 @@
     </article>
 	
 	<article>
-        <title></title>
+	    <icon>benefit_jf</icon>
+        <title>减肥</title>
         <text><![CDATA[
 <h1>减肥</h1>
 <img src='benefit_jf'/><br>
@@ -37,7 +41,8 @@
     </article>
 	
 	<article>
-        <title></title>
+	    <icon>benefit_zt</icon>
+        <title>止痛</title>
         <text><![CDATA[
 <h1>止痛</h1>
 <img src='benefit_zt'/><br>
@@ -46,7 +51,8 @@
     </article>
 	
 	<article>
-        <title></title>
+	    <icon>benefit_jy</icon>
+        <title>减压</title>
         <text><![CDATA[
 <h1>减压</h1>
 <img src='benefit_jy'/><br>
@@ -55,7 +61,8 @@
     </article>
 	
 	<article>
-        <title></title>
+	    <icon>benefit_jk</icon>
+        <title>健康</title>
         <text><![CDATA[
 <h1>健康</h1>
 <img src='benefit_jk'/><br>

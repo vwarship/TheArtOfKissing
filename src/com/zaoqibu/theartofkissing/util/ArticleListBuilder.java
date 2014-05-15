@@ -1,4 +1,4 @@
-package com.vwarship.theartofkissing;
+package com.zaoqibu.theartofkissing.util;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -11,8 +11,11 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import com.zaoqibu.theartofkissing.domain.Article;
+
 public class ArticleListBuilder {
 	public static final String ROOT = "article";
+	public static final String ELEMENT_ICON = "icon";
 	public static final String ELEMENT_TITLE = "title";
 	public static final String ELEMENT_TEXT = "text";
 
@@ -43,6 +46,8 @@ public class ArticleListBuilder {
 						article.setTitle(value);
 					else if (ELEMENT_TEXT.equals(name))
 						article.setText(value);
+					else if (ELEMENT_ICON.equals(name))
+						article.setIcon(value);
 				}
 				
 				articles.add(article);

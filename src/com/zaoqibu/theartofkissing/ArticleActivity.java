@@ -1,9 +1,12 @@
-package com.vwarship.theartofkissing;
+package com.zaoqibu.theartofkissing;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.vwarship.theartofkissing.R;
+import com.umeng.analytics.MobclickAgent;
+import com.zaoqibu.theartofkissing.R;
+import com.zaoqibu.theartofkissing.fragment.TrainingSectionFragment;
+import com.zaoqibu.theartofkissing.util.ResourceBitmapHelper;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
@@ -16,6 +19,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 public class ArticleActivity extends Activity {
+	private String title;
 	private TextView mText;
 	
 	private List<Bitmap> bitmapList = new ArrayList<Bitmap>();
@@ -25,8 +29,10 @@ public class ArticleActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_article);
 		
+		title = getIntent().getExtras().getCharSequence(TrainingSectionFragment.TITLE).toString();
+		
 		getActionBar().setDisplayHomeAsUpEnabled(true);
-		getActionBar().setTitle(getIntent().getExtras().getCharSequence(TrainingSectionFragment.TITLE));
+		getActionBar().setTitle(title);
 		
 		mText = (TextView)this.findViewById(R.id.article_text);
 		
@@ -90,6 +96,18 @@ public class ArticleActivity extends Activity {
 		
 		bitmapList.clear();
 		System.gc();
+	}
+	
+	private static final String PAGE_NAME = "How To Article: ";
+	public void onResume() {
+		super.onResume();
+	    MobclickAgent.onPageStart(PAGE_NAME + title); 
+		MobclickAgent.onResume(this);
+	}
+	public void onPause() {
+		super.onPause();
+	    MobclickAgent.onPageEnd(PAGE_NAME + title); 
+		MobclickAgent.onPause(this);
 	}
 
 }

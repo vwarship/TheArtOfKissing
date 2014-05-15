@@ -1,10 +1,16 @@
-package com.vwarship.theartofkissing;
+package com.zaoqibu.theartofkissing.fragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.vwarship.theartofkissing.R;
+import com.umeng.analytics.MobclickAgent;
+import com.zaoqibu.theartofkissing.R;
+import com.zaoqibu.theartofkissing.domain.Article;
+import com.zaoqibu.theartofkissing.util.ArticleListBuilder;
+import com.zaoqibu.theartofkissing.util.ResourceBitmapHelper;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -15,19 +21,38 @@ import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class BenefitSectionFragment extends Fragment {
 	private List<Bitmap> bitmapList = new ArrayList<Bitmap>();
-	private List<Article> mBenefits;
+	private List<Article> articles;
+	
+	private Context context;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.activity_good, container, false);
+		context = this.getActivity();
 		
-		mBenefits = ArticleListBuilder.create(getResources().openRawResource(R.raw.benefit_articles));
+		articles = ArticleListBuilder.create(getResources().openRawResource(R.raw.benefit_articles));
 
+		GridView gridView = (GridView)rootView.findViewById(R.id.gridView);
+		gridView.setAdapter(new BenefitAdapter(context, 340, articles));
+		gridView.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+//				Intent intent = new Intent(context, ColorDetailActivity.class);
+//				intent.putExtra(ColorDetailActivity.ARG_COLORS, colors);
+//				intent.putExtra(ColorDetailActivity.ARG_POSITION, position);
+//				startActivity(intent);
+			}
+		});
+		
+/*		
 		boolean isFirst = true;
 		LinearLayout contentView = (LinearLayout)rootView.findViewById(R.id.content_view);
 		for (Article benefit : mBenefits)
@@ -48,9 +73,7 @@ public class BenefitSectionFragment extends Fragment {
 			}, null);
 			tv.setText(charSequence);
 			
-			//tv.setBackgroundColor(Color.parseColor("#7CCD7C"));	//#FF83FA(粉色)
 			tv.setBackgroundResource(R.drawable.benefit_article_background);
-			//tv.setPadding(20, 20, 20, 20);
 			
 			LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
 					LinearLayout.LayoutParams.MATCH_PARENT,
@@ -65,7 +88,7 @@ public class BenefitSectionFragment extends Fragment {
 			
 			isFirst = false;
 		}
-
+*/
 		return rootView;
 	}
 	
@@ -85,27 +108,14 @@ public class BenefitSectionFragment extends Fragment {
 		System.gc();
 	}
 	
-//	public static Bitmap getBitmap(String imageFilePath, int displayWidth, int displayHeight) {
-//			BitmapFactory.Options bitmapOptions = new BitmapFactory.Options();
-//			bitmapOptions.inJustDecodeBounds = true;
-//			Bitmap bmp = BitmapFactory.decodeFile(imageFilePath, bitmapOptions);
-//
-//			// 编码后bitmap的宽高,bitmap除以屏幕宽度得到压缩比
-//			int widthRatio = (int) FloatMath.ceil(bitmapOptions.outWidth
-//			/ (float) displayWidth);
-//			int heightRatio = (int) FloatMath.ceil(bitmapOptions.outHeight
-//			/ (float) displayHeight);
-//
-//			if (widthRatio > 1 && heightRatio > 1) {
-//			if (widthRatio > heightRatio) {
-//			// 压缩到原来的(1/widthRatios)
-//			bitmapOptions.inSampleSize = widthRatio;
-//			} else {
-//			bitmapOptions.inSampleSize = heightRatio;
-//			}
-//			}
-//			bitmapOptions.inJustDecodeBounds = false;
-//			bmp = BitmapFactory.decodeFile(imageFilePath, bitmapOptions);
-//			return bmp;
-//	}	
+	private static final String PAGE_NAME = "Good";
+	public void onResume() {
+	    super.onResume();
+	    MobclickAgent.onPageStart(PAGE_NAME);
+	}
+	public void onPause() {
+	    super.onPause();
+	    MobclickAgent.onPageEnd(PAGE_NAME); 
+	}
+	
 }

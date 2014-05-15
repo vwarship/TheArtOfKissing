@@ -1,8 +1,11 @@
-package com.vwarship.theartofkissing;
+package com.zaoqibu.theartofkissing.fragment;
 
 import java.util.List;
 
-import com.vwarship.theartofkissing.R;
+import com.umeng.analytics.MobclickAgent;
+import com.zaoqibu.theartofkissing.R;
+import com.zaoqibu.theartofkissing.domain.Article;
+import com.zaoqibu.theartofkissing.util.ArticleListBuilder;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,7 +19,7 @@ import android.widget.TextView;
 public class LiteracySectionFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.activity_good, container, false);
+		View rootView = inflater.inflate(R.layout.activity_literacy, container, false);
 		LinearLayout contentView = (LinearLayout)rootView.findViewById(R.id.content_view);
 		
 		List<Article> articles = ArticleListBuilder.create(getResources().openRawResource(R.raw.literacy_articles));
@@ -35,7 +38,7 @@ public class LiteracySectionFragment extends Fragment {
 			TextView tv = new TextView(rootView.getContext());
 			tv.setText(Html.fromHtml(sb.toString()));
 			tv.setBackgroundResource(R.drawable.literacy_article_background);
-			tv.setTextSize(16);
+			tv.setTextSize(18);
 			
 			LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
 					LinearLayout.LayoutParams.MATCH_PARENT,
@@ -52,4 +55,14 @@ public class LiteracySectionFragment extends Fragment {
 		return rootView;
 	}
 	
+	private static final String PAGE_NAME = "Wiki";
+	public void onResume() {
+	    super.onResume();
+	    MobclickAgent.onPageStart(PAGE_NAME);
+	}
+	public void onPause() {
+	    super.onPause();
+	    MobclickAgent.onPageEnd(PAGE_NAME); 
+	}
+
 }
