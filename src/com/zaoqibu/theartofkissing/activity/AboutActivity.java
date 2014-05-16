@@ -1,4 +1,4 @@
-package com.zaoqibu.theartofkissing;
+package com.zaoqibu.theartofkissing.activity;
 
 import com.umeng.analytics.MobclickAgent;
 import com.zaoqibu.theartofkissing.R;

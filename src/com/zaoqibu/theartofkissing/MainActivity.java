@@ -6,6 +6,7 @@ import com.qq.e.appwall.GdtAppwall;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.update.UmengUpdateAgent;
 import com.zaoqibu.theartofkissing.R;
+import com.zaoqibu.theartofkissing.activity.AboutActivity;
 import com.zaoqibu.theartofkissing.fragment.BenefitSectionFragment;
 import com.zaoqibu.theartofkissing.fragment.LiteracySectionFragment;
 import com.zaoqibu.theartofkissing.fragment.TrainingSectionFragment;
@@ -21,7 +22,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -153,9 +153,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	    // Handle presses on the action bar items
 	    switch (item.getItemId()) {
 	    	case R.id.action_appwall:
-	    		GdtAppwall wall = new GdtAppwall(MainActivity.this, "1101366311", "9079537215733406649", false);
+	    		GdtAppwall wall = new GdtAppwall(MainActivity.this, 
+	    				Constants.GDT_APP_ID, Constants.GDT_APPWALLPOS_ID, 
+	    				false);
 				wall.doShowAppWall();
-				Log.i("debug", "wall........");
 	    		return true;
 	        case R.id.action_bgmusic:
 	        	mBackgroundSound.onOff();

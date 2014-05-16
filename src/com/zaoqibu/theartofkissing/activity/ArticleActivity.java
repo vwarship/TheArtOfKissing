@@ -1,4 +1,4 @@
-package com.zaoqibu.theartofkissing;
+package com.zaoqibu.theartofkissing.activity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,20 +49,6 @@ public class ArticleActivity extends Activity {
 		    	
 		        bitmapList.add(drawable.getBitmap());
 		    	return drawable;
-		    	
-//	            Drawable drawable = getResources().getDrawable(getResourcesDrawableId(source));
-//	            
-//	            DisplayMetrics metrics = new DisplayMetrics();
-//	            getWindowManager().getDefaultDisplay().getMetrics(metrics);
-//	            
-//	            int containerWidth = metrics.widthPixels;
-//	            int imageWidth = drawable.getIntrinsicWidth();
-//	            double drawableFactor = (double)containerWidth/imageWidth;
-//	            
-//	            drawable.setBounds(0, 0, 
-//	            		(int)(drawable.getIntrinsicWidth()*drawableFactor), 
-//	            		(int)(drawable.getIntrinsicHeight()*drawableFactor));
-//	            return drawable;
 		    }
 		}, null);
 		

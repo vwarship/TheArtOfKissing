@@ -46,7 +46,7 @@ public class ResourceBitmapHelper
 		return getDrawableFromResourceId(getResourcesDrawableId(resourceName), containerWidth, false);
 	}
 	
-	private int getResourcesDrawableId(String name)
+	public static int getResourcesDrawableId(String name)
 	{
 		try {
 			Field field = R.drawable.class.getField(name);
@@ -65,7 +65,7 @@ public class ResourceBitmapHelper
 		Size imageSize = calculateImageSize(resourceId, options);
 		Size zoomSize = calculateImageZoomSize(resourceId, containerWidth, imageSize);
 		
-		float compressNum = 1.2f;
+		float compressNum = 1;
 		if (isCompress)
 			compressNum = 2;
 		//为了减少占用内存，再缩小一半尺寸。

@@ -7,7 +7,7 @@ import java.util.Map;
 
 import com.umeng.analytics.MobclickAgent;
 import com.zaoqibu.theartofkissing.R;
-import com.zaoqibu.theartofkissing.ArticleActivity;
+import com.zaoqibu.theartofkissing.activity.ArticleActivity;
 import com.zaoqibu.theartofkissing.domain.Article;
 import com.zaoqibu.theartofkissing.util.ArticleListBuilder;
 

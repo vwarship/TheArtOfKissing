@@ -13,13 +13,13 @@
 
     <TextView
         android:id="@+id/itemText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:padding="8dp"
+        android:textColor="#2d89ef"
+        android:background="#88ff0097"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

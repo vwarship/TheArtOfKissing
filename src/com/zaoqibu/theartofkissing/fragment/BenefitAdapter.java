@@ -1,8 +1,5 @@
 package com.zaoqibu.theartofkissing.fragment;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.List;
 
@@ -13,7 +10,6 @@ import com.zaoqibu.theartofkissing.util.ResourceBitmapHelper;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;

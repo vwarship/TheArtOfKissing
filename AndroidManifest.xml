@@ -37,10 +37,13 @@
             </intent-filter>
         </activity>
         
-        <activity android:name="com.zaoqibu.theartofkissing.ArticleActivity">
+        <activity android:name="com.zaoqibu.theartofkissing.activity.BenefitDetailActivity">
         </activity>
         
-        <activity android:name="com.zaoqibu.theartofkissing.AboutActivity">
+        <activity android:name="com.zaoqibu.theartofkissing.activity.ArticleActivity">
+        </activity>
+        
+        <activity android:name="com.zaoqibu.theartofkissing.activity.AboutActivity">
         </activity>
         
         <meta-data android:value="53737c2556240b1cc503b1cf" android:name="UMENG_APPKEY"></meta-data>

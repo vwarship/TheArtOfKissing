@@ -1,6 +1,11 @@
 package com.zaoqibu.theartofkissing.domain;
 
-public class Article {
+import java.io.Serializable;
+
+public class Article implements Serializable
+{
+	private static final long serialVersionUID = 3722092841146925037L;
+	
 	private String title;
 	private String text;
 	private String icon;
