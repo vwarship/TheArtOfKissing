@@ -18,8 +18,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:padding="8dp"
-        android:textColor="#2d89ef"
-        android:background="#88ff0097"
+        android:background="#992d89ef"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

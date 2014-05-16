@@ -17,43 +17,6 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/aboutEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/aboutAuthor"
-        android:layout_alignLeft="@+id/aboutWeixin"
-        android:text="@string/about_email"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/aboutWeixin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/aboutEmail"
-        android:layout_alignLeft="@+id/aboutVerion"
-        android:text="@string/about_weixin"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/aboutVerion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/aboutWeixin"
-        android:layout_toLeftOf="@+id/icon"
-        android:text="@string/about_version"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/aboutAuthor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/aboutCopyright"
-        android:layout_alignLeft="@+id/aboutEmail"
-        android:layout_marginBottom="28dp"
-        android:text="@string/about_author"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
         android:id="@+id/aboutIntroduction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -85,5 +48,42 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#ff0000"
         android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/aboutEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/aboutAuthor"
+        android:layout_alignLeft="@+id/aboutAuthor"
+        android:text="@string/about_email"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/aboutAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/aboutCopyright"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/about_author"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/aboutWeixin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/aboutEmail"
+        android:layout_alignLeft="@+id/aboutEmail"
+        android:text="@string/about_weixin"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/aboutVerion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/aboutWeixin"
+        android:layout_alignLeft="@+id/aboutWeixin"
+        android:text="@string/about_version"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>
