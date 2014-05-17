@@ -6,6 +6,7 @@ import java.util.List;
 import com.umeng.analytics.MobclickAgent;
 import com.zaoqibu.theartofkissing.R;
 import com.zaoqibu.theartofkissing.fragment.TrainingSectionFragment;
+import com.zaoqibu.theartofkissing.util.GDTBannerAd;
 import com.zaoqibu.theartofkissing.util.ResourceBitmapHelper;
 
 import android.app.Activity;
@@ -16,6 +17,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.util.DisplayMetrics;
 import android.view.MenuItem;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class ArticleActivity extends Activity {
@@ -28,6 +30,9 @@ public class ArticleActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_article);
+		
+		RelativeLayout bannerAdLayout = (RelativeLayout)findViewById(R.id.gdtBannerAd);
+		GDTBannerAd.show(this, bannerAdLayout);
 		
 		title = getIntent().getExtras().getCharSequence(TrainingSectionFragment.TITLE).toString();
 		

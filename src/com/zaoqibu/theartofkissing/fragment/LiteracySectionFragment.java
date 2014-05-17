@@ -6,6 +6,7 @@ import com.umeng.analytics.MobclickAgent;
 import com.zaoqibu.theartofkissing.R;
 import com.zaoqibu.theartofkissing.domain.Article;
 import com.zaoqibu.theartofkissing.util.ArticleListBuilder;
+import com.zaoqibu.theartofkissing.util.GDTBannerAd;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,14 +15,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class LiteracySectionFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.activity_literacy, container, false);
-		LinearLayout contentView = (LinearLayout)rootView.findViewById(R.id.content_view);
 		
+		RelativeLayout bannerAdLayout = (RelativeLayout)rootView.findViewById(R.id.gdtBannerAd);
+		GDTBannerAd.show(getActivity(), bannerAdLayout);
+		
+		LinearLayout contentView = (LinearLayout)rootView.findViewById(R.id.content_view);
+
 		List<Article> articles = ArticleListBuilder.create(getResources().openRawResource(R.raw.literacy_articles));
 		
 		for (int i=0; i<articles.size(); ++i)

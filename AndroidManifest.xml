@@ -58,11 +58,10 @@
 		</activity>
 		
         <!-- GDT -->
-		<service  android:name="com.qq.e.comm.DownloadService" android:exported="false"></service>
-		<activity android:name="com.qq.e.ads.AdActivity"></activity>
+		<service android:name="com.qq.e.comm.DownloadService" android:exported="false"></service>
+		<activity android:name="com.qq.e.ads.AdActivity" android:theme="@android:style/Theme.Translucent"></activity>
 		<activity android:name="com.qq.e.ads.GdtBrowserActivity"></activity>
 		<activity android:name="com.qq.e.appwall.AppwallActivity" android:configChanges="keyboard|keyboardHidden|orientation" />
-		<service android:name="com.qq.e.comm.DownloadService" android:exported="false"></service>        
 	</application>
     
 </manifest>
