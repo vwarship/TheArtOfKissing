@@ -3,8 +3,7 @@ package com.zaoqibu.theartofkissing;
 import java.util.Locale;
 
 import com.qq.e.appwall.GdtAppwall;
-import com.umeng.analytics.MobclickAgent;
-import com.umeng.update.UmengUpdateAgent;
+import com.tencent.stat.StatService;
 import com.zaoqibu.theartofkissing.R;
 import com.zaoqibu.theartofkissing.activity.AboutActivity;
 import com.zaoqibu.theartofkissing.fragment.BenefitSectionFragment;
@@ -13,7 +12,6 @@ import com.zaoqibu.theartofkissing.fragment.TrainingSectionFragment;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
-import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -26,7 +24,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
-	private Context context;
 	private Menu optionsMenu;
 	private BackgroundSound mBackgroundSound = new BackgroundSound();
 	
@@ -65,15 +62,13 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 			{
 				mPlayer.pause();
 				backgroundMusicMenuItem.setIcon(R.drawable.ic_action_play);
-				
-				MobclickAgent.onEvent(context, "pause");
 			}
 			else
 			{
 				mPlayer.start();
 				backgroundMusicMenuItem.setIcon(R.drawable.ic_action_pause);
 				
-				MobclickAgent.onEvent(context, "play");
+				StatService.trackCustomEvent(MainActivity.this, "music_play", "true");
 			}
 		}
 	}
@@ -98,11 +93,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		context = this;
-		
-		MobclickAgent.openActivityDurationTrack(false);
-		MobclickAgent.updateOnlineConfig(this);
-		UmengUpdateAgent.update(this);
+		StatService.trackCustomEvent(this, "onCreate", "");
 		
 		// Set up the action bar.
 		final ActionBar actionBar = getActionBar();
@@ -242,13 +233,16 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		mBackgroundSound.release();
 	}
 	
-	public void onResume() {
+	@Override
+	protected void onResume() {
 		super.onResume();
-		MobclickAgent.onResume(this);
+		StatService.onResume(this);
 	}
-	public void onPause() {
+	
+	@Override
+	protected void onPause() {
 		super.onPause();
-		MobclickAgent.onPause(this);
+		StatService.onPause(this);
 	}
 	
 }

@@ -1,6 +1,6 @@
 package com.zaoqibu.theartofkissing.activity;
 
-import com.umeng.analytics.MobclickAgent;
+import com.tencent.stat.StatService;
 import com.zaoqibu.theartofkissing.R;
 import com.zaoqibu.theartofkissing.domain.Article;
 import com.zaoqibu.theartofkissing.util.ResourceBitmapHelper;
@@ -56,16 +56,16 @@ public class BenefitDetailActivity extends Activity
 		}
 	}
 	
-	private static final String PAGE_NAME = "GoodDetail";
-	public void onResume() {
+	@Override
+	protected void onResume() {
 		super.onResume();
-	    MobclickAgent.onPageStart(PAGE_NAME);
-		MobclickAgent.onResume(this);
+		StatService.onResume(this);
 	}
-	public void onPause() {
+	
+	@Override
+	protected void onPause() {
 		super.onPause();
-	    MobclickAgent.onPageEnd(PAGE_NAME); 
-		MobclickAgent.onPause(this);
+		StatService.onPause(this);
 	}
 
 }

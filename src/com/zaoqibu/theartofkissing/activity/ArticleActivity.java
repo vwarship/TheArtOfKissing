@@ -3,7 +3,7 @@ package com.zaoqibu.theartofkissing.activity;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.umeng.analytics.MobclickAgent;
+import com.tencent.stat.StatService;
 import com.zaoqibu.theartofkissing.R;
 import com.zaoqibu.theartofkissing.fragment.TrainingSectionFragment;
 import com.zaoqibu.theartofkissing.util.GDTBannerAd;
@@ -89,16 +89,16 @@ public class ArticleActivity extends Activity {
 		System.gc();
 	}
 	
-	private static final String PAGE_NAME = "How To Article: ";
-	public void onResume() {
+	@Override
+	protected void onResume() {
 		super.onResume();
-	    MobclickAgent.onPageStart(PAGE_NAME + title); 
-		MobclickAgent.onResume(this);
+		StatService.onResume(this);
 	}
-	public void onPause() {
+	
+	@Override
+	protected void onPause() {
 		super.onPause();
-	    MobclickAgent.onPageEnd(PAGE_NAME + title); 
-		MobclickAgent.onPause(this);
+		StatService.onPause(this);
 	}
 
 }

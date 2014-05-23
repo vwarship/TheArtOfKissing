@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.umeng.analytics.MobclickAgent;
+import com.tencent.stat.StatService;
 import com.zaoqibu.theartofkissing.R;
 import com.zaoqibu.theartofkissing.activity.ArticleActivity;
 import com.zaoqibu.theartofkissing.domain.Article;
@@ -64,14 +64,16 @@ public class TrainingSectionFragment extends ListFragment {
 		startActivity(intent);
 	}
 	
-	private static final String PAGE_NAME = "How To";
+	@Override
 	public void onResume() {
-	    super.onResume();
-	    MobclickAgent.onPageStart(PAGE_NAME);
+		super.onResume();
+		StatService.onResume(this.getActivity());
 	}
+	
+	@Override
 	public void onPause() {
-	    super.onPause();
-	    MobclickAgent.onPageEnd(PAGE_NAME); 
+		super.onPause();
+		StatService.onPause(this.getActivity());
 	}
 
 }

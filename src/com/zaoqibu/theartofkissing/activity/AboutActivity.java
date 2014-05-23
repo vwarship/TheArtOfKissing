@@ -1,6 +1,6 @@
 package com.zaoqibu.theartofkissing.activity;
 
-import com.umeng.analytics.MobclickAgent;
+import com.tencent.stat.StatService;
 import com.zaoqibu.theartofkissing.R;
 
 import android.app.Activity;
@@ -30,16 +30,16 @@ public class AboutActivity extends Activity {
 		}
 	}
 	
-	private static final String PAGE_NAME = "About";
-	public void onResume() {
+	@Override
+	protected void onResume() {
 		super.onResume();
-	    MobclickAgent.onPageStart(PAGE_NAME);
-		MobclickAgent.onResume(this);
-	}
-	public void onPause() {
-		super.onPause();
-	    MobclickAgent.onPageEnd(PAGE_NAME); 
-		MobclickAgent.onPause(this);
+		StatService.onResume(this);
 	}
 	
+	@Override
+	protected void onPause() {
+		super.onPause();
+		StatService.onPause(this);
+	}
+
 }

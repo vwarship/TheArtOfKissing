@@ -2,7 +2,7 @@ package com.zaoqibu.theartofkissing.fragment;
 
 import java.util.List;
 
-import com.umeng.analytics.MobclickAgent;
+import com.tencent.stat.StatService;
 import com.zaoqibu.theartofkissing.R;
 import com.zaoqibu.theartofkissing.domain.Article;
 import com.zaoqibu.theartofkissing.util.ArticleListBuilder;
@@ -61,14 +61,16 @@ public class LiteracySectionFragment extends Fragment {
 		return rootView;
 	}
 	
-	private static final String PAGE_NAME = "Wiki";
+	@Override
 	public void onResume() {
-	    super.onResume();
-	    MobclickAgent.onPageStart(PAGE_NAME);
+		super.onResume();
+		StatService.onResume(this.getActivity());
 	}
+	
+	@Override
 	public void onPause() {
-	    super.onPause();
-	    MobclickAgent.onPageEnd(PAGE_NAME); 
+		super.onPause();
+		StatService.onPause(this.getActivity());
 	}
 
 }
