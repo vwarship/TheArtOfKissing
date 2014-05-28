@@ -1,6 +1,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     
+    <item
+        android:id="@+id/action_share"
+        android:orderInCategory="110"
+        android:showAsAction="ifRoom"
+        android:title="@string/action_share"
+        android:icon="@drawable/ic_action_share"/>
+    
     <item android:id="@+id/menu_more"
+        android:orderInCategory="120"
         android:icon="@drawable/ic_action_overflow"
         android:showAsAction="always"
         android:title="@string/action_overflow">
@@ -8,18 +16,14 @@
     	    
 		     <item
 		        android:id="@+id/action_appwall"
+       		 	android:orderInCategory="121"
 		        android:icon="@drawable/ic_action_appwall"
 		        android:title="@string/action_appwall"
-		        android:showAsAction="never"/>
-    	    
-		    <item
-		        android:id="@+id/action_bgmusic"
-		        android:icon="@drawable/ic_action_play"
-		        android:title="@string/action_bgmusic"
 		        android:showAsAction="never"/>
 		    	    
 		    <item
 		        android:id="@+id/action_about"
+       		 	android:orderInCategory="122"
 		        android:icon="@drawable/ic_action_about"
 		        android:title="@string/action_about"
 		        android:showAsAction="never"/>

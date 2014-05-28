@@ -9,11 +9,11 @@ import com.zaoqibu.theartofkissing.activity.AboutActivity;
 import com.zaoqibu.theartofkissing.fragment.BenefitSectionFragment;
 import com.zaoqibu.theartofkissing.fragment.LiteracySectionFragment;
 import com.zaoqibu.theartofkissing.fragment.TrainingSectionFragment;
+import com.zaoqibu.theartofkissing.util.Share;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -24,55 +24,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
-	private Menu optionsMenu;
-	private BackgroundSound mBackgroundSound = new BackgroundSound();
-	
-	public class BackgroundSound 
-	{
-		private MediaPlayer mPlayer = null;
-		
-		public void create()
-		{
-			if (mPlayer == null)
-			{
-				mPlayer = MediaPlayer.create(MainActivity.this, R.raw.my_heart_will_go_on_love_theme_from_titanic_celine_dion); 
-				mPlayer.setLooping(true);
-				mPlayer.setVolume(100,100);
-			}
-		}
-		
-		public void release()
-		{
-			if (mPlayer != null)
-			{
-				mPlayer.stop();
-				mPlayer.release();
-				mPlayer = null;
-			}
-		}
-		
-		public void onOff()
-		{
-			MenuItem backgroundMusicMenuItem = optionsMenu.findItem(R.id.action_bgmusic);
-
-			if (mPlayer == null)
-				create();
-			
-			if (mPlayer.isPlaying())
-			{
-				mPlayer.pause();
-				backgroundMusicMenuItem.setIcon(R.drawable.ic_action_play);
-			}
-			else
-			{
-				mPlayer.start();
-				backgroundMusicMenuItem.setIcon(R.drawable.ic_action_pause);
-				
-				StatService.trackCustomEvent(MainActivity.this, "music_play", "true");
-			}
-		}
-	}
-	
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
 	 * fragments for each of the sections. We use a
@@ -132,8 +83,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		optionsMenu = menu;
-		
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return super.onCreateOptionsMenu(menu);
@@ -143,15 +92,15 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    // Handle presses on the action bar items
 	    switch (item.getItemId()) {
+	        case R.id.action_share:
+	        	Share.share(this);
+	            return true;
 	    	case R.id.action_appwall:
 	    		GdtAppwall wall = new GdtAppwall(MainActivity.this, 
 	    				Constants.GDT_APP_ID, Constants.GDT_APPWALLPOS_ID, 
 	    				false);
 				wall.doShowAppWall();
 	    		return true;
-	        case R.id.action_bgmusic:
-	        	mBackgroundSound.onOff();
-	            return true;
 	        case R.id.action_about:
 	        	Intent intent = new Intent(MainActivity.this, AboutActivity.class);
 	        	startActivity(intent);
@@ -230,7 +179,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		mBackgroundSound.release();
 	}
 	
 	@Override

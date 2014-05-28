@@ -28,3 +28,5 @@ proguard/
 # ANT
 build.xml
 ant.properties
+upload/
+material/

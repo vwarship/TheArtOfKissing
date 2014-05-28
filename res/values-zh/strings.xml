@@ -3,6 +3,7 @@
 
     <string name="app_name">接吻的艺术</string>
     
+    <string name="action_share">分享</string>
     <string name="action_overflow">更多</string>
     <string name="action_appwall">应用推荐</string>
     <string name="action_bgmusic">我心依旧</string>
